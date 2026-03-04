@@ -18,7 +18,7 @@ function LockIcon({ locked }) {
   );
 }
 
-export default function DraggableCard({ card, onDragStart, onUpdate, onDelete }) {
+export default function DraggableCard({ card, onDragStart, onUpdate, onDelete, onCtrlClick, isSelected }) {
   // --- VARIABLES --- //
   let textRef = useRef(null); // Reference to the textarea for resizing
   let lockButtonTitle;  // Used for button hover text
@@ -32,6 +32,9 @@ export default function DraggableCard({ card, onDragStart, onUpdate, onDelete })
     cardClass = "card card-unlocked";
   }
 
+  if (isSelected) {
+    cardClass += " card-selected";
+  }
 
   // --- EFFECTS --- //
   // Resize the textarea height whenever the text content changes.
@@ -43,10 +46,14 @@ export default function DraggableCard({ card, onDragStart, onUpdate, onDelete })
     textRef.current.style.height = textRef.current.scrollHeight + "px"; // Set new height
   }, [card.text]);
 
-
   // --- FUNCTIONS --- //
   // Begin dragging
   function handleMouseDown(event) {
+    if (event.ctrlKey || event.metaKey) {
+      event.preventDefault();
+      onCtrlClick(card.id);
+      return;
+    }
     onDragStart(event, card.id);
   }
 

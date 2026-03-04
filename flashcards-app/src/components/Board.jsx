@@ -33,7 +33,8 @@ export default function Board({ subject, onUpdateSubject, onBack }) {
   let dragging = useRef(null);
   // Reference to the board div
   let boardRef = useRef(null);
-
+  let [selectedCards, setSelectedCards] = useState([]);
+  let [lines, setLines] = useState([]);
 
   // --- VARIABLES --- //
   let boardIsEmpty = cards.length === 0;
@@ -165,6 +166,61 @@ export default function Board({ subject, onUpdateSubject, onBack }) {
     setCards(function(prev) {
       return prev.filter(function(changedCard) { return changedCard.id !== id; });
     });
+
+    setLines(function(prev) {
+      return prev.filter(function(line) {
+        return line.cardId1 !== id && line.cardId2 !== id;
+      });
+    });
+
+    setSelectedCards(function(prev){
+      return prev.filter(function(cardId){
+        return cardId !== id;
+      });
+  })
+  }
+
+//draws and undraws lines ¯\(°_o)/¯
+  function ctrlClickLine(id) {
+    setSelectedCards(function(prev) {
+      if (prev.includes(id)) {
+        return prev.filter(function(cardId) { return cardId !== id; });
+      }
+      if (prev.length === 1) {
+        const first = prev[0];
+        // check if there is a line ＼（〇_ｏ）／
+        const existingIdx = lines.findIndex(function(l) {
+          return (
+            (l.cardId1 === first && l.cardId2 === id) ||
+            (l.cardId1 === id && l.cardId2 === first)
+          );
+        });
+        if (existingIdx !== -1) {
+          // if there is a line delete it ╰（‵□′）╯
+          setLines(lines.filter(function(l) {
+            return !(
+              (l.cardId1 === first && l.cardId2 === id) ||
+              (l.cardId1 === id && l.cardId2 === first)
+            );
+          }));
+          return [];
+        }
+        // add a new line otherwise ᓚᘏᗢ
+        setLines(function(existing) {
+          return [...existing, { cardId1: first, cardId2: id }];
+        });
+        return [];
+      }
+      return [...prev, id];
+    });
+  }
+
+  function calcCardCenter(cardID){
+    let card = cards.find(function(dCard) { return dCard.id === cardID; });
+    if(!card){
+      return null;
+    }
+    return {x: card.x + CARD_WIDTH/2, y: card.y + CARD_HEIGHT/2};
   }
 
 
@@ -284,10 +340,34 @@ export default function Board({ subject, onUpdateSubject, onBack }) {
               onDragStart={handleDragStart}
               onUpdate={updateCard}
               onDelete={deleteCard}
+              onCtrlClick={ctrlClickLine}
+              isSelected={selectedCards.includes(card.id)}
             />
           );
         })}
       </div>
+
+      <svg className="line-svg" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}>
+        {lines.map(function(ln, index) {
+          let begin = calcCardCenter(ln.cardId1);
+          let end = calcCardCenter(ln.cardId2);
+          if (!begin || !end) {
+            return null;
+          }
+          return (
+            <line
+              key={index}
+              x1={begin.x}
+              y1={begin.y}
+              x2={end.x}
+              y2={end.y}
+              stroke="#000000"
+              strokeWidth="2"
+              opacity="0.6"
+            />
+          );
+        })}
+      </svg>
 
       {/* Empty board message, only shown when there are no cards */}
       {boardIsEmpty && (
