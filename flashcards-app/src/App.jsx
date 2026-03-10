@@ -86,7 +86,6 @@ export default function App() {
     setTimeout(() => setIsTransitioning(false), 500);
   }
 
-  // Called by Board after exit animations finish,aits exitDuration ms then creates the version
   function handleNewCanvasRequest(exitDuration) {
     const capturedIndex = verIndex; // capture now before any async delay
     setTimeout(() => createNewVersion(capturedIndex), exitDuration);
@@ -122,7 +121,6 @@ export default function App() {
                     ←
                   </button>
 
-                  {/* key prop forces remount so the CSS animation replays on every canvas change */}
                   <span key={canvasNameKey} className="canvas-name canvas-name-animate">Canvas {verIndex + 1}</span>
 
                   <button 

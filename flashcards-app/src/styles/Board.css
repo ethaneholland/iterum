@@ -72,21 +72,6 @@
   padding: 8px 10px 0;
 }
 
-.pinned-card-archive-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 11px;
-  color: var(--color-faint);
-  font-family: var(--font);
-  padding: 0;
-  transition: color 0.15s;
-}
-
-.pinned-card-archive-btn:hover {
-  color: var(--red);
-}
-
 .pinned-card-body {
   padding: 6px 16px 16px;
 }

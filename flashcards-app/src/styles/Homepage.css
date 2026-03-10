@@ -93,6 +93,21 @@
   justify-content: flex-end;
 }
 
+.pinned-card-archive-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--color-faint);
+  font-family: var(--font);
+  padding: 0px 10px;
+  transition: color 0.15s;
+}
+
+.pinned-card-archive-btn:hover {
+  color: var(--red);
+}
+
 .subject-card-body {
   padding: 6px 14px 8px;
   flex: 1;
