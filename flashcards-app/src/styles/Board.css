@@ -4,7 +4,9 @@
   background-color: var(--background-main);
   background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.15) 1px, transparent 0);
   background-size: 28px 28px;
-  position: relative;
+  position: absolute; /* Changed from relative to absolute to fill the wrapper */
+  top: 0;
+  left: 0;
   overflow: hidden;
 }
 
@@ -68,21 +70,6 @@
   display: flex;
   justify-content: flex-end;
   padding: 8px 10px 0;
-}
-
-.pinned-card-archive-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 11px;
-  color: var(--color-faint);
-  font-family: var(--font);
-  padding: 0;
-  transition: color 0.15s;
-}
-
-.pinned-card-archive-btn:hover {
-  color: var(--red);
 }
 
 .pinned-card-body {

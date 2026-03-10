@@ -89,6 +89,23 @@
 .subject-card-spacer {
   height: 29px;
   flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pinned-card-archive-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--color-faint);
+  font-family: var(--font);
+  padding: 0px 10px;
+  transition: color 0.15s;
+}
+
+.pinned-card-archive-btn:hover {
+  color: var(--red);
 }
 
 .subject-card-body {

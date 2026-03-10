@@ -1,6 +1,6 @@
 import "../styles/ErrorDialog.css";
 
-export default function ErrorDialog({ onDismiss }) {
+export default function ErrorDialog({ onDismiss, description }) {
   // --- FUNCTIONS --- //
   // Clicking outside the dialog box dismisses the dialog
   function handleOverlayClick() {
@@ -21,6 +21,7 @@ export default function ErrorDialog({ onDismiss }) {
         <p className="dialog-body">
           This feature isn't available yet.
         </p>
+        {description && <p className="dialog-body">{description}</p>}
         {/* Dismiss the dialog button */}
         <button className="dialog-btn" onClick={onDismiss}>
           Okay

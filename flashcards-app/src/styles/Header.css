@@ -1,99 +1,141 @@
+/* 1. The Main Overlay Container */
 .header {
-  position: fixed;
+  position: absolute; 
   top: 0;
   left: 0;
   right: 0;
-  padding: 8px 24px 10px;
-  background: var(--background-main-header);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-subtle);
-  z-index: 9999;
-  font-family: var(--font);
+  height: 80px;
+  background: transparent !important;
+  z-index: 10000; 
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  pointer-events: none;
 }
 
 .header-inner {
-  padding-left: var(--header-indent);
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .header-inner-with-back {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  pointer-events: auto; 
+}
+
+.canvas-name {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  user-select: none;
+}
+
+.center-pill {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
   gap: 16px;
 }
 
-.header-back-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: var(--color-muted);
+.header-pill {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
-  transition: color 0.15s;
-  flex-shrink: 0; 
+  gap: 10px;
 }
 
-.header-back-btn:hover {
-  color: var(--color-text);
-}
-
-.header-content {
-  display: flex;
-  flex-direction: column;
-  padding-left: 8px;
-}
-
-.header-site-title {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--color-text);
+.left-pill {
   font-family: var(--font);
-  margin-bottom: 3px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.header-breadcrumb {
+.crumb.clickable {
+  cursor: pointer;
+  color: var(--color-muted);
+}
+
+.crumb.clickable:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.crumb.active {
+  font-weight: 700;
+  color: #000;
+}
+
+.version-navigator-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-arrow {
+  background: white !important; 
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.nav-arrow:hover:not(:disabled) {
+  background: #f0f0f0 !important;
+  transform: translateY(-1px);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.header-actions-right {
+  display: flex;
+  gap: 8px;
+  margin-left: auto; 
+}
+
+.pill-btn-box {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.header-crumb {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-muted);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   font-family: var(--font);
 }
 
-.header-crumb-active {
-  color: var(--color-text);
+.pill-btn-box:hover {
+  background: #f9f9f9;
+}
+/* --- Canvas title fade-in when version changes --- */
+@keyframes canvas-name-fadein {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-.header-crumb-sep {
-  color: var(--color-faint);
-  font-size: 14px;
-}
-
-.header-crumb-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: var(--font);
-  display: flex;
-  align-items: center;
-  line-height: 1;
-}
-
-.header-crumb-btn span {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-muted);
-  transition: color 0.15s;
-}
-
-.header-crumb-btn:hover span {
-  color: #666;
+.canvas-name-animate {
+  animation: canvas-name-fadein 0.35s ease-out both;
 }
