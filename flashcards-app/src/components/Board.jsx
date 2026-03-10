@@ -49,7 +49,7 @@ export default function Board({
   );
   const dragging = useRef(null); // Stores drag state on mouse moves
   const boardRef = useRef(null); // Reference to the board div
-  const latestSave = useRef(null); // Keeps onSaveVersion/verIndex fresh inside the stale mouseup closure
+  const latestSave = useRef(null); 
   latestSave.current = { onSaveVersion, verIndex, lines, cards };
 
   // Clear entering animation classes after they've played

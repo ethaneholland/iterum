@@ -52,7 +52,7 @@ export default function DraggableCard({ card, onDragStart, onUpdate, onDelete, o
 
   // --- FUNCTIONS --- //
   // Each button sets status exclusively, only one can be active at a time.
-  // Clicking an already-active button returns to "normal" (deactivates it).
+  // Clicking an already active button returns to normal (deactivates it).
   const setStatus = (e, newStatus) => {
     e.stopPropagation();
     onUpdate(card.id, { status: status === newStatus ? "normal" : newStatus });
@@ -106,7 +106,7 @@ export default function DraggableCard({ card, onDragStart, onUpdate, onDelete, o
         </button>
       </div>
       
-      {/* Body - Disable typing if locked */}
+      {/* Body */}
       <div className="card-body" onMouseDown={e => e.stopPropagation()}>
         <textarea
           ref={textRef}
