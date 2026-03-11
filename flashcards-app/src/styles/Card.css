@@ -1,31 +1,32 @@
+.card-wrapper {
+  position: absolute;
+  background: var(--neutral-800);
+  border-radius: 14px;
+  padding: 2px;
+  box-shadow: 0 2px 6px var(--black-400);
+  cursor: grab;
+}
 
 .card {
-  position: absolute;
   width: 220px;
   min-height: 148px;
   max-height: 50vh;
-  background: var(--draggable-card-primary);
-  border: 2px solid var(--draggable-card-border);
+  background: var(--white-100);
+  border: 1px solid var(--black-500);
   border-radius: 12px;
-  box-shadow: none;
   padding: 12px 14px 14px;
-  user-select: none; 
+  user-select: none;
   display: flex;
   flex-direction: column;
   gap: 8px;
   overflow: hidden;
-  font-family: var(--font);
-  transition: box-shadow 0.2s;
+  font-family: var(--font-body);
   cursor: grab;
 }
 
-.card:hover {
-  box-shadow: var(--shadow-hover);
-}
-
 .card-selected {
-  border-color: #000000;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary-600);
+  box-shadow: 0 0 8px var(--primary-700);
 }
 .card-toolbar {
   display: flex;
@@ -38,6 +39,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--black-300);
   padding: 0 2px;
   display: flex;
   align-items: center;
@@ -56,12 +58,12 @@
 .card-btn-delete {
   font-size: 16px;
   line-height: 1;
-  color: #999;
-  font-family: var(--font);
+  color: var(--black-300);
+  font-family: var(--font-body);
 }
 
 .card-btn-delete:hover {
-  color: var(--color-text);
+  color: var(--black-100);
 }
 
 .card-body {
@@ -83,9 +85,9 @@
   outline: none;
   resize: none;
   width: 100%;
-  font-family: var(--font);
+  font-family: var(--font-body);
   font-size: 13px;
-  color: var(--color-text);
+  color: var(--black-100);
   line-height: 28px;
   min-height: 112px;
   display: block;
@@ -96,6 +98,7 @@
 
 .card.card-revise {
   border-style: dashed;
+  border-color: var(--primary-700);
 }
 
 .card.card-hidden {
@@ -112,7 +115,7 @@
 }
 
 .card-btn {
-  padding: 2px 4px;
+  padding: 4px 4px;
   border-radius: 4px;
   font-size: 14px;
   background: transparent;
@@ -120,12 +123,12 @@
 }
 
 .card-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--black-500);
 }
 
 .card-btn.active {
-  background: rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  background: var(--black-400);
+  box-shadow: inset 0 1px 2px var(--black-300);
 }
 
 .card-btn.active svg {
@@ -135,9 +138,10 @@
 }
 
 .card-btn.active {
-  background-color: rgba(37, 99, 235, 0.1) !important;
+  background-color: var(--black-400) !important;
   transform: scale(1.05);
   animation: lock-snap 0.2s ease-out;
+  color: var(--black-100);
 }
 
 @keyframes lock-snap {
@@ -147,20 +151,21 @@
 }
 
 .card-btn:not(.active) svg {
-  stroke: #94a3b8;
+  stroke: var(--black-300);
   transition: stroke 0.2s, transform 0.2s;
 }
 
 .card-btn:hover svg {
-  stroke: #475569;
+  stroke: var(--black-100);
+  color: var(--black-100);
 }
 
 .card-btn.active-lock {
-  background-color: rgba(220, 38, 38, 0.1) !important;
+  background-color: var(--primary-900) !important;
 }
 
 .card-btn.active-lock svg {
-  stroke: #dc2626 !important;
+  stroke: var(--primary-600) !important;
   filter: drop-shadow(0 0 2px rgba(220, 38, 38, 0.2)) !important;
 }
 

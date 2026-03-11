@@ -3,6 +3,9 @@ import SubjectCard from "./SubjectCard";
 import ErrorDialog from "./ErrorDialog";
 import "../styles/Homepage.css";
 import "../styles/Header.css";
+import "../styles/Footer.css";
+import iterumLogo from "../assets/iterum-logo.png";
+import Footer from "./Footer";
 
 export default function Homepage({ subject, onOpenSubject }) {
   // --- STATE --- //
@@ -27,9 +30,9 @@ export default function Homepage({ subject, onOpenSubject }) {
             
             {/* Breadcrumb */}
             <div className="header-pill left-pill">
-              <span className="crumb clickable" onClick={() => openDialog("This button will bring you to a new page where you can organize different card decks. You will be able to organize by course, term, etc.")}>Home</span>
+              <span className="crumb clickable" onClick={() => openDialog("This button will bring you to a new page where you can organize different card decks. You will be able to organize by course, term, etc.")}>home</span>
               <span className="sep">//</span>
-              <span className="crumb active">Sample Subject</span>
+              <span className="crumb active">sample subject</span>
             </div>
 
             {/* Center Version Navigation */}
@@ -55,7 +58,7 @@ export default function Homepage({ subject, onOpenSubject }) {
                 <line x1="1" y1="7" x2="13" y2="7" stroke="white" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </div>
-            <span className="new-subject-tile-label">New Subject</span>
+            <span className="new-subject-tile-label">new subject</span>
           </div>
 
           {/* Clicking the Subject Card will open the board */}
@@ -66,6 +69,10 @@ export default function Homepage({ subject, onOpenSubject }) {
 
       {/* Open an error dialog when a feature isn't implemented */}
       {showErrorDialog && <ErrorDialog onDismiss={closeDialog} description={showErrorDialog} />}
+
+      <div className="footer-logo-full">
+        <img src={iterumLogo} alt="Iterum" className="footer-logo-img" />
+      </div>
 
     </div>
   );

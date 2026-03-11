@@ -1,0 +1,74 @@
+.board-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 12px 24px;
+  pointer-events: none;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  column-gap: 40px;
+  row-gap: 6px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--black-300);
+  white-space: nowrap;
+}
+
+.legend-item svg {
+  flex-shrink: 0;
+  color: var(--black-300);
+}
+
+.legend-icon-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.legend-plus-sep {
+  font-size: 18px;
+  color: var(--black-300);
+  line-height: 1;
+}
+
+.legend-plus-sep-extra {
+  font-size: 18px;
+  color: var(--black-300);
+  line-height: 1;
+  margin-right: 22px;
+}
+
+.legend-text-btn
+{
+    font-size: 12px;
+    color: var(--black-300);
+    border: 1px solid var(--black-300);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-img {
+  height: 64px;
+  width: auto;
+}

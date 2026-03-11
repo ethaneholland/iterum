@@ -20,4 +20,49 @@
   --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12);
   --red: #e53935;
   --header-indent: 46px;
+
+  /* OTHER  */
+  --app-background: #F5EAEA;
+  --font-heading: 'Hedvig Letters Serif', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* WHITES */
+  --white-100: rgba(255, 255, 255, 1);
+  --white-200: rgba(255, 255, 255, 0.8);
+  --white-300: rgba(255, 255, 255, 0.4);
+  --white-400: rgba(255, 255, 255, 0.16);
+  --white-500: rgba(255, 255, 255, 0.08);
+  --white-600: rgba(255, 255, 255, 0.04);
+
+  /* BLACKS */
+  --black-100: rgba(44, 44, 45, 1);
+  --black-200: rgba(44, 44, 45, 0.8);
+  --black-300: rgba(44, 44, 45, 0.4);
+  --black-400: rgba(44, 44, 45, 0.16);
+  --black-500: rgba(44, 44, 45, 0.08);
+  --black-600: rgba(44, 44, 45, 0.04);
+
+  /* NEUTRALS */
+  --neutral-0:   #121113;
+  --neutral-100: #1A191B;
+  --neutral-200: #232225;
+  --neutral-300: #2B292D;
+  --neutral-400: #3C393F;
+  --neutral-500: #625F69;
+  --neutral-600: #D0CDD7;
+  --neutral-700: #E3DFE6;
+  --neutral-800: #F2EFF3;
+  --neutral-900: #FAF9FB;
+
+  /* PRIMARYS */
+  --primary-0:   #0E0B0B;
+  --primary-100: #0F0504;
+  --primary-200: #1E0A09;
+  --primary-300: #4C1816;
+  --primary-400: #792622;
+  --primary-500: #97302B;
+  --primary-600: #AC5955;
+  --primary-700: #CB9795;
+  --primary-800: #EAD6D5;
+  --primary-900: #F5EAEA;
 }

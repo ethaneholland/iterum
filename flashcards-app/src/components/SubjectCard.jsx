@@ -10,13 +10,15 @@ export default function SubjectCard({ subject, onOpen, onArchive }) {
   // --- PAGE CONTENT --- //
   return (
     // Clicking the card switches the screen to the board
-    <div className="subject-card" onClick={onOpen}>
-      <div className="subject-card-spacer">
-        <button className="pinned-card-archive-btn" onClick={(e) => { e.stopPropagation(); onArchive(); }}>Archive</button>
-      </div>
-      <div className="subject-card-body">
-        <div className="subject-card-title">{subject.title}</div>
-        <div className="subject-card-meta">{countsText}</div>
+    <div className="subject-card-wrapper">
+      <div className="subject-card" onClick={onOpen}>
+        <div className="subject-card-spacer">
+          <button className="pinned-card-archive-btn" onClick={(e) => { e.stopPropagation(); onArchive(); }}>Archive</button>
+        </div>
+        <div className="subject-card-body">
+          <div className="subject-card-title">{subject.title}</div>
+          <div className="subject-card-meta">{countsText}</div>
+        </div>
       </div>
     </div>
   );

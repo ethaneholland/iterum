@@ -1,8 +1,8 @@
 .homepage {
   width: 100vw;
   min-height: 100vh;
-  background-color: var(--background-main);
-  font-family: var(--font);
+  background-color: var(--app-background);
+  font-family: var(--font-heading);
 }
 
 .homepage-grid-wrapper {
@@ -31,8 +31,8 @@
 .new-subject-tile {
   width: 220px;
   min-height: 160px;
-  background: var(--subject-card-primary);
-  border: 2px solid var(--subject-card-border);
+  background: var(--primary-800);
+  border: 1px solid var(--primary-500);
   border-radius: 12px;
   box-shadow: none;
   display: flex;
@@ -40,7 +40,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-family: var(--font);
+  font-family: var(--font-heading);
   gap: 10px;
   transition: box-shadow 0.15s;
   user-select: none;
@@ -54,7 +54,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--subject-card-border);
+  background: var(--primary-600);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,23 +62,34 @@
 
 .new-subject-tile-label {
   font-size: 12px;
-  color: var(--subject-card-darker);
+  color: var(--primary-600);
   font-weight: 700;
+}
+
+.subject-card-wrapper {
+  border-radius: 14px;
+  padding: 2px;
+  background: var(--neutral-200);
+  box-shadow: 0 2px 6px var(--black-400);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.subject-card-wrapper:hover {
+  box-shadow: 0 4px 12px var(--black-400);
 }
 
 .subject-card {
   width: 220px;
   min-height: 160px;
-  background: var(--subject-card-primary);
-  border: 2px solid var(--subject-card-border);
+  background: var(--neutral-300);
+  border: 1px solid var(--white-500);
   border-radius: 12px;
-  box-shadow: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: var(--font);
+  font-family: var(--font-body);
   position: relative;
-  transition: box-shadow 0.2s;
   cursor: pointer;
 }
 
@@ -98,14 +109,14 @@
   border: none;
   cursor: pointer;
   font-size: 11px;
-  color: var(--color-faint);
-  font-family: var(--font);
+  color: var(--white-300);
+  font-family: var(--font-body);
   padding: 0px 10px;
   transition: color 0.15s;
 }
 
 .pinned-card-archive-btn:hover {
-  color: var(--red);
+  color: var(--white-100);
 }
 
 .subject-card-body {
@@ -117,12 +128,21 @@
 .subject-card-title {
   font-size: 16px;
   font-weight: 700;
-  color: var(--color-text);
+  font-family: var(--font-heading);
+  color: var(--white-100);
   margin-bottom: 8px;
   text-align: center;
 }
 
 .subject-card-meta {
   font-size: 11px;
-  color: var(--color-muted);
+  color: var(--white-300);
+}
+
+.footer-logo-full {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
