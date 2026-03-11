@@ -27,11 +27,18 @@
 }
 
 .canvas-name {
-  font-family: var(--font);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 600;
   font-size: 15px;
-  color: #000;
+  color: var(--primary-300);
   user-select: none;
+}
+
+.header-pill {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .center-pill {
@@ -39,40 +46,32 @@
   border: none !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
-  gap: 16px;
-}
-
-.header-pill {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 8px 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .left-pill {
-  font-family: var(--font);
+  font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 500;
+  gap: 4px;
+}
+
+.sep {
+  color: var(--black-300);
 }
 
 .crumb.clickable {
   cursor: pointer;
-  color: var(--color-muted);
+  color: var(--black-300);
 }
 
 .crumb.clickable:hover {
-  color: #000;
+  color: var(--black-100);
   text-decoration: underline;
 }
 
 .crumb.active {
-  font-weight: 700;
-  color: #000;
+  color: var(--primary-300);
 }
 
 .version-navigator-container {
@@ -82,8 +81,8 @@
 }
 
 .nav-arrow {
-  background: white !important; 
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background: var(--neutral-900);
+  border: 1px solid var(--black-400);
   border-radius: 8px;
   width: 32px;
   height: 32px;
@@ -91,14 +90,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  color: var(--black-100);
   font-size: 16px;
-  transition: all 0.2s ease;
+  transition: background 0.15s;
 }
 
 .nav-arrow:hover:not(:disabled) {
-  background: #f0f0f0 !important;
-  transform: translateY(-1px);
+  background: var(--neutral-800);
 }
 
 .nav-arrow:disabled {
@@ -114,22 +112,25 @@
 }
 
 .pill-btn-box {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--neutral-900);
+  border: 1px solid var(--black-500);
   padding: 8px 16px;
   border-radius: 10px;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  font-family: var(--font);
+  font-family: var(--font-heading);
+  color: var(--black-100);
+  transition: background 0.15s;
 }
 
 .pill-btn-box:hover {
-  background: #f9f9f9;
+  background: var(--neutral-800);
 }
+
 /* --- Canvas title fade-in when version changes --- */
 @keyframes canvas-name-fadein {
   0%   { opacity: 0; transform: translateY(6px); }

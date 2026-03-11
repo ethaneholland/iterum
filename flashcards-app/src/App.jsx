@@ -2,10 +2,11 @@ import { useState, useRef } from "react";
 import Board from "./components/Board";
 import Homepage from "./components/Homepage";
 import ErrorDialog from "./components/ErrorDialog";
+import { PlusCircleIcon, TrashIcon, ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import "./styles/global.css";
 
 const TESTING_SUBJECT = { 
-  title: "Sample Story", 
+  title: "sample story", 
   versions: [
     { name: "Version 1", cards: [], lines: [] }
   ] 
@@ -103,9 +104,9 @@ export default function App() {
               
               {/* Breadcrumbs */}
               <div className="header-pill left-pill">
-                <span className="crumb clickable" onClick={() => setOnBoard(false)}>Home</span>
+                <span className="crumb clickable" onClick={() => setOnBoard(false)}>home</span>
                 <span className="sep">//</span>
-                <span className="crumb clickable" onClick={() => setOnBoard(false)}>Sample Subject</span>
+                <span className="crumb clickable" onClick={() => setOnBoard(false)}>sample subject</span>
                 <span className="sep">//</span>
                 <span className="crumb active">{subject.title}</span>
               </div>
@@ -118,17 +119,17 @@ export default function App() {
                     onClick={() => handleVersionChange(Math.max(0, verIndex - 1))} 
                     disabled={verIndex === 0 || isTransitioning}
                   >
-                    ←
+                    <ArrowLeftIcon size={16} />
                   </button>
 
-                  <span key={canvasNameKey} className="canvas-name canvas-name-animate">Canvas {verIndex + 1}</span>
+                  <span key={canvasNameKey} className="canvas-name canvas-name-animate">iterò {verIndex + 1}</span>
 
                   <button 
                     className="nav-arrow" 
                     onClick={() => handleVersionChange(Math.min(subject.versions.length - 1, verIndex + 1))} 
                     disabled={verIndex === subject.versions.length - 1 || isTransitioning}
                   >
-                    →
+                    <ArrowRightIcon size={16} />
                   </button>
                 </div>
               </div>
@@ -136,10 +137,10 @@ export default function App() {
               {/* Action Buttons */}
               <div className="header-actions-right">
                 <button className="pill-btn-box" onClick={() => boardNewCanvasRef.current?.()}>
-                  New <span className="icon">+</span>
+                  new <PlusCircleIcon size={16} weight="duotone" />
                 </button>
                 <button className="pill-btn-box" onClick={() => setShowErrorDialog("This button will delete the canvas revision that you are currently viewing.")}>
-                  Delete <span className="icon">X</span>
+                  delete <TrashIcon size={16} weight="duotone" />
                 </button>
               </div>
 

@@ -4,6 +4,7 @@ import ErrorDialog from "./ErrorDialog";
 import { getNextCardId } from "../global-variables";
 import "../styles/Board.css";
 import "../styles/Header.css";
+import Footer from "./Footer";
 
 // --- CONSTANTS --- //
 // These match the fixed pixel sizes used in Board.css and must stay in sync.
@@ -303,8 +304,8 @@ export default function Board({
 
       const nextCards = currentCards.map(c => {
         if (c.id !== id) return c;
-        const { x, y } = pushOutOfPinnedCard(c.x, c.y);
-        return { ...c, x, y };
+        const { x, y } = pushBackOntoScreen(c.x, c.y);
+       return { ...c, x, y };
       });
 
       setCards(nextCards);
@@ -380,24 +381,27 @@ export default function Board({
       {boardIsEmpty && (
         <div className="board-empty-container">
           <div className="board-empty-content">
-            <h5>Your board is empty</h5>
-            <p>Double-click anywhere to add an answer</p>
+            <h5>your board is empty</h5>
+            <p>double-click anywhere to add an answer</p>
           </div>
         </div>
       )}
 
-      {/* Pinned subject card, fixed in the centre, not draggable */}
+      {/* Pinned subject card, fixed in the centre, not draggable
       <div className="pinned-card">
         <div className="pinned-card-body">
           <strong className="pinned-card-title">{subjectTitle}</strong>
           <p className="pinned-card-hint">Double-click the board to add a card.</p>
         </div>
-      </div>
+      </div> */}
 
       {/* Error dialog */}
       {showErrorDialog && (
         <ErrorDialog onDismiss={closeDialog} description={showErrorDialog} />
       )}
+
+      {/* Footer */}
+      <Footer />
 
     </div>
   );
