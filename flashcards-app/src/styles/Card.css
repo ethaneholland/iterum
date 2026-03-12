@@ -22,6 +22,11 @@
   overflow: hidden;
   font-family: var(--font-body);
   cursor: grab;
+  touch-action: none;
+}
+
+.card:active {
+  cursor:grabbing;
 }
 
 .card-selected {

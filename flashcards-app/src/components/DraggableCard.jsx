@@ -50,7 +50,7 @@ if (isSelected)          cardClass += " card-selected";
     <div
     className={wrapperClass}
     style={{ left: `${card.x}px`, top: `${card.y}px`, zIndex: card.zIndex, position: 'absolute' }}
-    onMouseDown={handleMouseDown}
+    onPointerDown={handleMouseDown}
     >
     <div 
       className={cardClass} 
@@ -60,7 +60,7 @@ if (isSelected)          cardClass += " card-selected";
           {/* Lock Button */}
           <button
             className={`card-btn ${status === 'locked' ? 'active active-lock' : ''}`}
-            onMouseDown={(e) => setStatus(e, "locked")}
+            onPointerDown={(e) => setStatus(e, "locked")}
             title="Carry over to next canvas"
           >
             {status === 'locked' ? <ArrowSquareUpRightIcon weight="duotone" size={20} /> : <SquareIcon weight="duotone" size={20} />}
@@ -69,7 +69,7 @@ if (isSelected)          cardClass += " card-selected";
           {/* Revise Button */}
           <button
             className={`card-btn ${status === 'revise' ? 'active' : ''}`}
-            onMouseDown={(e) => setStatus(e, "revise")}
+            onPointerDown={(e) => setStatus(e, "revise")}
             title="Mark for Revision"
           >
             <NotePencilIcon weight="duotone" size={20} />
@@ -78,7 +78,7 @@ if (isSelected)          cardClass += " card-selected";
           {/* Hide Button */}
           <button
             className={`card-btn ${status === 'hidden' ? 'active' : ''}`}
-            onMouseDown={(e) => setStatus(e, "hidden")}
+            onPointerDown={(e) => setStatus(e, "hidden")}
             title="Hide in this Version"
           >
             <EyeSlashIcon weight="duotone" size={20} />
@@ -87,7 +87,7 @@ if (isSelected)          cardClass += " card-selected";
 
         <button 
           className="card-btn card-btn-delete" 
-          onMouseDown={(e) => { 
+          onPointerDown={(e) => { 
             e.stopPropagation(); 
             onDelete(card.id); 
           }}
@@ -98,7 +98,7 @@ if (isSelected)          cardClass += " card-selected";
       </div>
       
       {/* Body */}
-      <div className="card-body" onMouseDown={e => e.stopPropagation()}>
+      <div className="card-body" onPointerDown={e => e.stopPropagation()}>
         <textarea
           ref={textRef}
           className="card-textarea"

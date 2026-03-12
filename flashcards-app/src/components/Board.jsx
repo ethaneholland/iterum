@@ -145,7 +145,7 @@ export default function Board({
       });
     });
 
-    // Store the drag origin so we can compute deltas in onMouseMove
+    // Store the drag origin so we can compute deltas in onPointerMove
     dragging.current = {
       id,
       startMouseX: event.clientX,
@@ -273,7 +273,7 @@ export default function Board({
   // Runs only once (Thats what the empty [] dependency does)
   useEffect(function() {
     // When the mouse moves, call this function:
-    function onMouseMove(event) {
+    function onPointerMove(event) {
       if (!dragging.current) {
         return;
       }
@@ -297,7 +297,7 @@ export default function Board({
     }
 
     // When the mouse is released, call this function:
-    function onMouseUp() {
+    function onPointerUp() {
       if (!dragging.current) return;
       const { id } = dragging.current;
       const { onSaveVersion: save, verIndex: vi, lines: li, cards: currentCards } = latestSave.current;
@@ -316,13 +316,13 @@ export default function Board({
       dragging.current = null;
     }
 
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
 
     // Clean up listeners when the component unmounts
     return function() {
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
     };
   }, []);
 
